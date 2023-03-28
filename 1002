@@ -1,0 +1,60 @@
+多项式求和计算
+#include <stdio.h>
+#include <bits/stdc++.h>
+#include <iostream>
+using namespace std;
+#define Maxsize 1000
+
+struct x
+{
+    float data;
+    int temp=-1;
+};
+
+int main()
+{
+    struct x po[Maxsize];
+    int k;
+    cin>>k;
+    while(k!=0)
+    {
+        k--;
+        int a;
+        float b;
+        cin>>a;
+        cin>>b;
+        po[a].data=b;
+        po[a].temp=0;
+    }
+    cin>>k;
+    while(k!=0)
+    {
+        k--;
+        int a;
+        float b;
+        cin>>a;
+        cin>>b;
+        if(po[a].temp==0)
+            po[a].data=b+po[a].data;
+        else
+        {
+            po[a].data=b;
+            po[a].temp=0;
+        }
+    }
+
+    int total=0;
+    for(int i=0;i<Maxsize;i++)
+    {
+        if(po[i].temp==0)
+            total++;
+    }
+    cout<<total<<' ';
+    for(int i=Maxsize-1;i>=0;i--)
+    {
+        if(po[i].temp==0)
+        {
+            cout<<i<<' '<<po[i].data<<' ';
+        }
+    }
+}
