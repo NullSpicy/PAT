@@ -1,3 +1,6 @@
+//提供两个整数，计算两数和，并按照三位一组以逗号分隔输出。
+
+
 #include <stdio.h>
 #include <bits/stdc++.h>
 #include <iostream>
